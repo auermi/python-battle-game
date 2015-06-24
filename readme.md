@@ -27,3 +27,31 @@ to lose -> player health <= 0
 
 
 modes -> easy, normal, hard
+
+Code
+---
+*Classes*
+---
+person class <br>
+|-> enemy extends person <br>
+|-> player extends person
+
+person -> <br>
+-type <br>
+-health (get, set) <br>
+-attack (type) (returns damage) <br>
+-is_crit (returns true, false) <br>
+-speed (get speed) [later implement] <br>
+-defense (get defense) <br>
+
+Game loop -> <br>
+- on start, generate monster, player, welcome player, introduction, describe monster, give player options. <br>
+[1] Attack <br>
+[2] Magic <br>
+	[1] Fire <br>
+[3] Check Health <br>
+	-> ASCII Health bar (Later)
+
+monster attacks
+
+you attack
