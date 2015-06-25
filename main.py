@@ -1,3 +1,4 @@
+# Special thanks to Waseem Dahman (@wsmd) for util.is_valid_input && util.printTitle
 import re
 from util import Util
 
@@ -5,15 +6,14 @@ from person import Person
 
 util = Util
 
-
 player = Person(100, "player")
 enemy = Person(100, "enemy")
-print("arena-battle.py")
+print(util.printTitle("arena-battle.py"))
 print("Hello, and welcome to the arena. In order to survive you must defeat your opponent.")
 
 while True:
     # Player attack phase
-    print("Enter the respective command to take an action:\n    [ ] Attack\n    [ ] Quit")
+    print("Enter the respective command to take an action:\n\n    [ ] Attack\n    [ ] Quit\n")
     action = input("> ")
     if util.is_valid_input(action, "attack"):
         player.attack(enemy, 10)
