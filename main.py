@@ -13,7 +13,7 @@ print("Hello, and welcome to the arena. In order to survive you must defeat your
 
 while True:
     # Player attack phase
-    print("Enter the respective command to take an action:\n[1] Attack\n[2] Quit")
+    print("Enter the respective command to take an action:\n    [ ] Attack\n    [ ] Quit")
     action = input("> ")
     if util.is_valid_input(action, "attack"):
         player.attack(enemy, 10)
