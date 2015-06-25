@@ -1,4 +1,5 @@
 # Special thanks to Waseem Dahman (@wsmd) for util.is_valid_input && util.printTitle
+
 import re
 from util import Util
 
@@ -13,16 +14,18 @@ print("Hello, and welcome to the arena. In order to survive you must defeat your
 
 while True:
     # Player attack phase
-    print("Enter the respective command to take an action:\n\n    [ ] Attack\n    [ ] Quit\n")
+    print("\nEnter the respective command to take an action:\n\n    [ ] Attack\n    [ ] Quit\n")
     action = input("> ")
+    print("")
     if util.is_valid_input(action, "attack"):
         player.attack(enemy, 10)
-        print ("Your opponent has {} health left".format(enemy.health))
+        print ("Your opponent has {} health left\n".format(enemy.health))
     elif util.is_valid_input(action, "quit"):
         break
     else:
         print ("Invalid input please try again.")
 
     # Enemy Attack Phase
+    print("Your opponent is attacking you.")
     enemy.attack(player, 10)
-    print ("You have {} health left.".format(player.health))
+    print("You have {} health left.".format(player.health))
