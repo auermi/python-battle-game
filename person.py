@@ -13,7 +13,7 @@ class Person(object):
 
     @health.setter
     def health(self, value):
-        self.health = value
+        self.__health = value
 
     @property
     def p_type(self):
@@ -23,15 +23,15 @@ class Person(object):
     def p_type(self, value):
         self.p_type = value
 
-    def attack(target, max_damage):
+    def attack(self, target, max_damage):
         dmg = random.randrange(max_damage/2, max_damage)
-        if isCrit():
+        if self.isCrit():
             dmg *= 2
             print("** CRITICAL HIT **")
         target.health -= dmg
         print("{} damage was dealt.".format(dmg))
 
-    def isCrit():
-        if random.randrange(0, 100) > crit_min:
+    def isCrit(self):
+        if random.randrange(0, 100) > self.__crit_min:
             return True
         return False
