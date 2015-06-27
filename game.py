@@ -6,8 +6,8 @@ class Game:
     def init_game ():
         util = Util
 
-        player = Person(100, "player")
-        enemy = Person(100, "enemy")
+        player = Person(100, "player", 3)
+        enemy = Person(100, "enemy", 3)
         print(util.printTitle("arena-battle.py"))
         print("Hello, and welcome to the arena. In order to survive you must defeat your opponent.")
 

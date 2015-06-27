@@ -2,10 +2,11 @@ import random
 
 class Person(object):
 
-    def __init__(self, health, p_type):
+    def __init__(self, health, p_type, defense):
         self.__health = health
         self.__crit_min = 80
         self.__p_type = p_type
+        self.__defense = defense
 
     @property
     def health(self):
@@ -23,13 +24,24 @@ class Person(object):
     def p_type(self, value):
         self.p_type = value
 
+    @property
+    def defense(self):
+        return self.__defense
+
+    @defense.setter
+    def defense(self, value):
+        self.defense = value
+
     def attack(self, target, max_damage):
         dmg = random.randrange(max_damage/2, max_damage)
         if self.isCrit():
             dmg *= 2
             print("** CRITICAL HIT **")
-        target.health -= dmg
-        print("{} damage was dealt.".format(dmg))
+        if dmg > self.__defense:
+            target.health -= dmg + self.__defense
+            print("{} damage was dealt.".format(dmg))
+        else:
+            print("0 damage was dealt.")
 
     def isCrit(self):
         if random.randrange(0, 100) > self.__crit_min:
