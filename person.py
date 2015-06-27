@@ -35,3 +35,8 @@ class Person(object):
         if random.randrange(0, 100) > self.__crit_min:
             return True
         return False
+
+    def isDead(self):
+        if self.__health <= 0:
+            return True
+        return False

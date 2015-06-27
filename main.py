@@ -2,7 +2,6 @@
 
 import re
 from util import Util
-
 from person import Person
 
 util = Util
@@ -19,6 +18,9 @@ while True:
     print("")
     if util.is_valid_input(action, "attack"):
         player.attack(enemy, 10)
+        if enemy.isDead():
+            print("\nYou are the victor! Congratulations, you have won the game!")
+            break
         print ("Your opponent has {} health left\n".format(enemy.health))
     elif util.is_valid_input(action, "quit"):
         break
@@ -28,4 +30,11 @@ while True:
     # Enemy Attack Phase
     print("Your opponent is attacking you.")
     enemy.attack(player, 10)
+    if player.isDead():
+        print("\nYou were killed in the arena! You have lost this game.")
+        break
+
     print("You have {} health left.".format(player.health))
+
+# Space after break out of loop and end game
+print("\n\n")
