@@ -1,6 +1,5 @@
 # Special thanks to Waseem Dahman (@wsmd) for util.is_valid_input && util.printTitle
 
-import re
 from util import Util
 from person import Person
 
