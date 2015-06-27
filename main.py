@@ -1,4 +1,4 @@
-# Special thanks to Waseem Dahman (@wsmd) for util.is_valid_input && util.printTitle
+# Special thanks to Waseem Dahman (@wsmd) for help util.is_valid_input && util.printTitle
 
 from game import Game
 from util import Util

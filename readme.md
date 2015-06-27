@@ -55,3 +55,13 @@ Game loop -> <br>
 monster attacks
 
 you attack
+
+*FEATURES*
+view health is an option during battle
+ascii health bar
+magic attack
+defense attribute
+
+
+*BUG*
+if player's input is invalid the monster attacks anyways
