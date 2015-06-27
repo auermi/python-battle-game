@@ -11,21 +11,31 @@ class Game:
         print(util.printTitle("arena-battle.py"))
         print("Hello, and welcome to the arena. In order to survive you must defeat your opponent.")
 
-        while True:
+        def player_attack_phase():
             # Player attack phase
-            print("\nEnter the respective command to take an action:\n\n    [ ] Attack\n    [ ] Quit\n")
-            action = input("> ")
+            print("\nEnter the respective command to take an action:\n\n    [ ] Attack\n    [ ] Check Health\n    [ ] Quit")
+            action = input("\n> ")
             print("")
             if util.is_valid_input(action, "attack"):
                 player.attack(enemy, 10)
                 if enemy.isDead():
                     print("\nYou are the victor! Congratulations, you have won the game!")
-                    break
+                    return False
                 print ("Your opponent has {} health left\n".format(enemy.health))
             elif util.is_valid_input(action, "quit"):
-                break
+                return False
+            elif util.is_valid_input(action, "check health"):
+                print("Player: {} health\n".format(player.health))
+                return player_attack_phase()
             else:
-                print ("Invalid input please try again.")
+                print ("Invalid input please try again.\n")
+                return player_attack_phase()
+            return True
+
+        while True:
+
+            if not player_attack_phase():
+                break
 
             # Enemy Attack Phase
             print("Your opponent is attacking you.")
