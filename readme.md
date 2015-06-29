@@ -57,11 +57,7 @@ monster attacks
 you attack
 
 *FEATURES*
-view health is an option during battle *FIXED*
 ascii health bar
 magic attack
-defense attribute
 
-
-*BUG*
-if player's input is invalid the monster attacks anyways *FIXED*
+*BUGS*

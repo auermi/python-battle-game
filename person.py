@@ -4,6 +4,7 @@ class Person(object):
 
     def __init__(self, health, p_type, defense):
         self.__health = health
+        self.__MAX_HEALTH = health
         self.__crit_min = 80
         self.__p_type = p_type
         self.__defense = defense
@@ -16,6 +17,10 @@ class Person(object):
     def health(self, value):
         self.__health = value
 
+    @property
+    def MAX_HEALTH(self):
+        return self.__MAX_HEALTH
+        
     @property
     def p_type(self):
         return self.__p_type

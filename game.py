@@ -25,7 +25,7 @@ class Game:
             elif util.is_valid_input(action, "quit"):
                 return False
             elif util.is_valid_input(action, "check health"):
-                print("Player: {} health\n".format(player.health))
+                print("Player: {}  {}/{} health\n".format(util.render_health_bar(player), player.health, player.MAX_HEALTH))
                 return player_attack_phase()
             else:
                 print ("Invalid input please try again.\n")
