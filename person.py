@@ -1,11 +1,14 @@
 import random
+from util import Util
+
+util = Util
+
 
 class Person(object):
 
     def __init__(self, health, p_type, defense):
         self.__health = health
         self.__MAX_HEALTH = health
-        self.__crit_min = 80
         self.__p_type = p_type
         self.__defense = defense
 
@@ -20,7 +23,7 @@ class Person(object):
     @property
     def MAX_HEALTH(self):
         return self.__MAX_HEALTH
-        
+
     @property
     def p_type(self):
         return self.__p_type
@@ -37,9 +40,19 @@ class Person(object):
     def defense(self, value):
         self.defense = value
 
-    def attack(self, target, max_damage):
-        dmg = random.randrange(max_damage/2, max_damage)
-        if self.isCrit():
+    def attack(self, target, action):
+        max_damage = 0
+        if util.is_valid_input(action, "stab"):
+            max_damage = 10
+        elif util.is_valid_input(action, "punch"):
+            max_damage = 5
+        elif util.is_valid_input(action, "fireball"):
+            max_damage = 15
+        else:
+            print("type: -> {}        max)_damage -> {}".format(type, max_damage))
+
+        dmg = random.randrange(round(max_damage/2), max_damage)
+        if self.isCrit(type):
             dmg *= 2
             print("** CRITICAL HIT **")
         if dmg > self.__defense:
@@ -48,8 +61,15 @@ class Person(object):
         else:
             print("0 damage was dealt.")
 
-    def isCrit(self):
-        if random.randrange(0, 100) > self.__crit_min:
+    def isCrit(self, action):
+        crit_min = 0
+        if type == "stab":
+            crit_min = 80
+        elif type == "punch":
+            crit_min =  70
+        elif type == "fireball":
+            max_damage = 85
+        if random.randrange(0, 100) > crit_min:
             return True
         return False
 

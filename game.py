@@ -17,14 +17,16 @@ class Game:
             action = input("\n> ")
             print("")
             if util.is_valid_input(action, "attack"):
-                print("\n\n[ ] Sword\n    [ ] Punch\n    [ ] Fireball")
+                print("    [ ] Stab\n    [ ] Punch\n    [ ] Fireball\n    <-- Back")
                 action = input("\n> ")
-                if util.is_valid_input(action, "sword"):
-                    player.attack(enemy, 10)
-                elif util.is_valid_input(action, "punch"):
-                    player.attack(enemy, 5)
-                elif util.is_valid_input(action, "fireball"):
-                    player.attack(enemy, 15)
+                print(action)
+                if util.is_valid_input(action, "punch") or util.is_valid_input(action, "stab") or util.is_valid_input(action, "fireball"):
+                    player.attack(enemy, action)
+                elif util.is_valid_input(action, "back"):
+                    return player_attack_phase()
+                else:
+                    print ("\nInvalid input please try again.")
+                    return player_attack_phase()
                 if enemy.isDead():
                     print("\nYou are the victor! Congratulations, you have won the game!")
                     return False
@@ -46,7 +48,7 @@ class Game:
 
             # Enemy Attack Phase
             print("Your opponent is attacking you.")
-            enemy.attack(player, 10)
+            enemy.attack(player, "stab")
             if player.isDead():
                 print("\nYou were killed in the arena! You have lost this game.")
                 break
