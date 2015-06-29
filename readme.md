@@ -1,62 +1,52 @@
-game_py.py
-===
-a game made on an airplane.
+# python_battle_game
 
-turn based rpg
+**a game made on an airplane.**
 
-one player -> <br>
--attack (sword, magic) -> <br>
--crit chance, magic is effective dependent upon monster<br>
--randomly generated stats for v1 <br>
--health <br>
--speed (who goes first) <br>
--defense<br>
+This game isn't, but hopefully will become a turn based RPG. There's no story right now, just pure battling. All that you can do at this point is attack your enemy who attacks you automatically back. At this point there is no difficulty and you will win every round (use the fireball).
 
+## Project Files
 
-one enemy
-attack (punch, magic) <br>
-crit chance <br>
-health <br>
-speed <br>
-defense <br>
+### main.py
 
-to win -> monster health <= 0
+*You would run the game from here. Runs the init_game method from the game class and also provides the ability to play the game again.*
 
-to lose -> player health <= 0
+### game.py
+
+*This is where the magic happens. game.py contains init_game() which is where the main game loop resides. We do most of our input handling in this method as well as our attack phases.*
 
 
+### person.py
 
-modes -> easy, normal, hard
+*This is our person object. We use it to initialize our player and enemy for version 1 of this game.*
 
-Code
----
-*Classes*
----
-person class <br>
-|-> enemy extends person <br>
-|-> player extends person
+- **health**
+- **MAX_HEALTH**
+- **p_type**
+- **defense**
+- **attack() returns a damage value**
+- **isCrit() returns true/false based on if attack crits**
+- **isDead() returns true/false based on if person has less than 0**
+- *speed (Unimplemented)*
 
-person -> <br>
--type <br>
--health (get, set) <br>
--attack (type) (returns damage) <br>
--is_crit (returns true, false) <br>
--speed (get speed) [later implement] <br>
--defense (get defense) <br>
+### util.py
 
-Game loop -> <br>
-- on start, generate monster, player, welcome player, introduction, describe monster, give player options. <br>
-[1] Attack <br>
-[2] Magic <br>
-	[1] Fire <br>
-[3] Check Health <br>
-	-> ASCII Health bar
+*This file includes all of our utility functions that are used several times across most classes.*
 
-monster attacks
+- **is_valid_input()** -> uses regex to determine if the input is valid
+- **printTitle()** -> takes a string and returns a nicely formatted title
+- **render_health_bar()** -> Rounds a percentage and returns an ascii health bar
 
-you attack
+## Features to Implement
 
-*FEATURES*
-]
+- **I want to turn this into a pokemon clone. That said I should do the following things**
+  - Create a monster class for each creature
+  - Add the ability to switch between creatures (3 allowed)
+  - The game will start and you can pick your creatures (I'll start with creating 6 different ones to choose from)
+  - You can choose a name for yourself
+  - The game would be an endless battle til you died.
+  	- Your creatures would heal after each battle.
+  	- Difficulty would slightly increase each consecutive battle.
+  	- Score would be the number of enemy monsters you defeated.
+  - Opponent class would be separate from person class, not extending it.
+  	- Build AI methods for things like the enemy switching out pokemon.
 
-*BUGS*
