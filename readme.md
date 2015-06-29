@@ -50,16 +50,13 @@ Game loop -> <br>
 [2] Magic <br>
 	[1] Fire <br>
 [3] Check Health <br>
-	-> ASCII Health bar (Later)
+	-> ASCII Health bar
 
 monster attacks
 
 you attack
 
 *FEATURES*
-attack
-->sword
-->punch
-->fireball
+]
 
 *BUGS*

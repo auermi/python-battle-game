@@ -48,8 +48,6 @@ class Person(object):
             max_damage = 5
         elif util.is_valid_input(action, "fireball"):
             max_damage = 15
-        else:
-            print("type: -> {}        max)_damage -> {}".format(type, max_damage))
 
         dmg = random.randrange(round(max_damage/2), max_damage)
         if self.isCrit(type):
