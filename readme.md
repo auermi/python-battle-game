@@ -57,7 +57,9 @@ monster attacks
 you attack
 
 *FEATURES*
-ascii health bar
-magic attack
+attack
+->sword
+->punch
+->fireball
 
 *BUGS*

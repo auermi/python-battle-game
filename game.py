@@ -17,7 +17,14 @@ class Game:
             action = input("\n> ")
             print("")
             if util.is_valid_input(action, "attack"):
-                player.attack(enemy, 10)
+                print("\n\n[ ] Sword\n    [ ] Punch\n    [ ] Fireball")
+                action = input("\n> ")
+                if util.is_valid_input(action, "sword"):
+                    player.attack(enemy, 10)
+                elif util.is_valid_input(action, "punch"):
+                    player.attack(enemy, 5)
+                elif util.is_valid_input(action, "fireball"):
+                    player.attack(enemy, 15)
                 if enemy.isDead():
                     print("\nYou are the victor! Congratulations, you have won the game!")
                     return False
